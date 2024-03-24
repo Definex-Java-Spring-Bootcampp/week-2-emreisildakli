@@ -3,6 +3,7 @@ package com.patika.kredinbizdeservice.controller;
 import com.patika.kredinbizdeservice.model.User;
 import com.patika.kredinbizdeservice.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,7 +32,8 @@ public class UserController {
 
     /*
     get all users
-     */
+     */;
+
     @GetMapping
     public List<User> getAll() {
         return userService.getAll();
@@ -47,7 +49,7 @@ public class UserController {
 
         User user1 = userService.update(email, user);
 
-        if (user1 != null){
+        if (user1 != null) {
             return ResponseEntity.ok().body(user1);
         }
 

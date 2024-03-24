@@ -3,6 +3,7 @@ package com.patika.kredinbizdeservice.model;
 import com.patika.kredinbizdeservice.enums.SectorType;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Campaign {
 
@@ -80,5 +81,13 @@ public class Campaign {
                 ", updateDate=" + updateDate +
                 ", sector=" + sector +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Campaign campaign = (Campaign) o;
+        return Objects.equals(title, campaign.title) && Objects.equals(content, campaign.content) && Objects.equals(dueDate, campaign.dueDate) && Objects.equals(createDate, campaign.createDate) && Objects.equals(updateDate, campaign.updateDate) && sector == campaign.sector;
     }
 }
